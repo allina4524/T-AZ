@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>لوحة التحكم</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #337ab7;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #23527c;
+        }
+    </style>
+</head>
+<body>
+    <h1>لوحة التحكم</h1>
+    <div class="form-group">
+        <label for="video-url">gomovies.sx</label>
+        <input type="text" id="video-url" value="" placeholder="أدخل رابط الفيديو">
+    </div>
+    <div class="form-group">
+        <label for="subtitles-id">github</label>
+        <input type="text" id="subtitles-id" value="" placeholder="أدخل رقم الترجمة">
+    </div>
+    <button onclick="copyCode()">نسخ الكود</button>
+
+    <script>
+        function copyCode() {
+            var videoUrl = document.getElementById("video-url").value;
+            var subtitlesId = document.getElementById("subtitles-id").value;
+            var code = '[custom_video_player video_url="' + videoUrl + '" subtitles_url="https://raw.githubusercontent.com/allina4524/T-AZ/main/' + subtitlesId + '.vtt"]';
+
+            // نسخ الكود إلى الحافظة
+            navigator.clipboard.writeText(code)
+                .then(function() {
+                    alert("تم نسخ الكود بنجاح!");
+                })
+                .catch(function(error) {
+                    console.error("حدث خطأ أثناء نسخ الكود:", error);
+                });
+        }
+    </script>
+</body>
+</html>
